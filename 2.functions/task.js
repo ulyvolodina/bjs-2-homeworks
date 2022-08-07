@@ -40,7 +40,7 @@ function makeWork(arrOfArr, func) {
   let max = -Infinity;
 
   for (let i=0; i<arrOfArr.length; i++) {
-	let result = worker(arrOfArr[i]);
+	let result = func(arrOfArr[i]);
 
 	if (result > max) {
 		max = result;
