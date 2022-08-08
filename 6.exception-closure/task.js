@@ -5,7 +5,7 @@ function parseCount(someValue) {
 	if (isNaN(parse)) {
 		throw new Error("Невалидное значение");
 	} else { 
-		return parsed;
+		return parse;
 	}
 }
 
@@ -39,8 +39,7 @@ class Triangle {
 		let perimetr = this.getPerimeter() / 2;
 		let area = Math.sqrt(perimetr * (perimetr - this.a) * (perimetr - this.b) * (perimetr - this.c));
 		this.area = area.toFixed(3);
-
-		return this.area;
+		return Math.abs(this.area);
 	}
 }
 
