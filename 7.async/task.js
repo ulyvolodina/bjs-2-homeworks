@@ -1,4 +1,3 @@
-
 class AlarmClock {
     constructor () {
         this.alarmCollection = [],
@@ -22,16 +21,6 @@ class AlarmClock {
     }
     getCurrentFormattedTime () {
 		return new Date().toTimeString().slice(0, 5);
-        // let zeroAdd = (number) => {
-        //     if (number < 10) {
-        //         return '0' + number;
-        //     }
-        //     return number;
-        // }
-        // let actualTime = new Date();
-        // let minutes = zeroAdd(actualTime.getMinutes());
-        // let hours = zeroAdd(actualTime.getHours());
-        // return hours + ':' + minutes;
     }
     start () {
         let checkClock = (clock) => {
