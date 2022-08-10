@@ -45,24 +45,25 @@ function debounceDecoratorNew(func) {
 
 // ### Задача 3. Усовершенствуйте debounceDecoratorNew
 
-function debounceDecorator2(func) {
+function debounceDecorator2(func, ms) {
 	let timer = null;
-	let timerHistory = true;
+	let check = true;
 	wrapp.count = 0
 
 	function wrapper(...arguments) {
-		wrapper.count.push(arguments);
-		if(!timerHistory) {
-			func.apply(this, arguments);
-		} else {
-			clearTimeout(timer);
-			timer = setTimeout(() => {
-				timerHistory = true;
-				func.apply(this, arguments);
-			})
+		wrapper.count = wrapper.count + 1;
+		if (check === true) {
+			func(...arguments);
+			check = false;
 		}
 
-	wrapper.count = [];
-	return wrapper;
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func(...arguments);
+			check = true;
+		}, ms);
 	}
+
+	wrapper.count = 0;
+	return wrapper;
 }  
